@@ -49,7 +49,8 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-
+/Packages/*.*
+/Nuget/*.*
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
@@ -57,7 +58,8 @@ ExportedObj/
 *.meta
 # Unity3D generated file on crash reports
 sysinfo.txt
-
+NuGet.config
+Packages.config
 # Builds
 *.apk
 *.aab
@@ -75,3 +77,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
+NuGet/Resources/defaultIcon.png
