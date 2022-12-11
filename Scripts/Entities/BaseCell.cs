@@ -27,10 +27,6 @@ public class BaseCell : MonoBehaviour
     {
         Look();
     }
-    void MakeHungry(double amount)
-    {
-
-    }
     void Move()
     {
         transform.Translate(Time.deltaTime * Vector2.up * Speed);
@@ -46,26 +42,25 @@ public class BaseCell : MonoBehaviour
     void Look()
     {
         var hits = new float[5][];
-        hits[0] = ResolveCollision(ShotRays(transform.up - transform.right / 2));
-        hits[1] = ResolveCollision(ShotRays(transform.up - transform.right / 4));
+        hits[0] = ResolveCollision(ShotRays(transform.up - (transform.right / 2)));
+        hits[1] = ResolveCollision(ShotRays(transform.up - (transform.right / 4)));
         hits[2] = ResolveCollision(ShotRays(transform.up));
-        hits[3] = ResolveCollision(ShotRays(transform.up + transform.right / 4));
-        hits[4] = ResolveCollision(ShotRays(transform.up + transform.right / 2));
+        hits[3] = ResolveCollision(ShotRays(transform.up + (transform.right / 4)));
+        hits[4] = ResolveCollision(ShotRays(transform.up + (transform.right / 2)));
         for (int i = 0; i < eyes.Length; i++)
         {
             eyes[i] = hits[i][0];
             eyesDistance[i] = hits[i][1];
         }
-
     }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.up * LookRange);
-        Gizmos.DrawLine(transform.position, transform.position + (transform.up + transform.right / 2) * LookRange);
-        Gizmos.DrawLine(transform.position, transform.position + (transform.up - transform.right / 2) * LookRange);
-        Gizmos.DrawLine(transform.position, transform.position + (transform.up - transform.right / 4) * LookRange);
-        Gizmos.DrawLine(transform.position, transform.position + (transform.up + transform.right / 4) * LookRange);
+        Gizmos.DrawLine(transform.position, transform.position + (transform.up * LookRange));
+        Gizmos.DrawLine(transform.position, transform.position + ((transform.up + (transform.right / 2)) * LookRange));
+        Gizmos.DrawLine(transform.position, transform.position + ((transform.up - (transform.right / 2)) * LookRange));
+        Gizmos.DrawLine(transform.position, transform.position + ((transform.up - (transform.right / 4)) * LookRange));
+        Gizmos.DrawLine(transform.position, transform.position + ((transform.up + (transform.right / 4)) * LookRange));
     }
     RaycastHit2D[] ShotRays(Vector3 direction)
     {
